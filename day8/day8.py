@@ -1,4 +1,4 @@
-f = open('input2.txt','r')
+f = open('input.txt','r')
 
 inputs = [x.rstrip('\n') for x in f]
 inputs = [(x.replace('|','')).split() for x in inputs]
@@ -32,7 +32,7 @@ for k, x in enumerate(sortedoutputvalue):
 
     seven = [i for i in value[k] if len(i) == 3][0]
     seven = [i for i in seven]
-    print(seven)
+
     for n, y in enumerate(x):
 
         if len(y) in [2,3,4,7]: #correspond to 1 7 4 8
@@ -49,7 +49,7 @@ for k, x in enumerate(sortedoutputvalue):
             union = four + [s for s in [t for t in y] if s not in four]
             snitt = list(set(four) & set(y))
 
-            if (one[0] and one[1]) in y:
+            if (one[0] in y) and (one[1] in y):
                 x[n] = 3 
 
             elif len(list(set(union)-set(snitt))) == 5:
@@ -64,13 +64,12 @@ for k, x in enumerate(sortedoutputvalue):
             if len(list(set(union)-set(snitt))) == 2:
                 x[n] = 9
 
-            elif (seven[0] and seven[1] and seven[2]) in y:
-                print(y)
+            elif (seven[0] in y) and (seven[1] in y) and (seven[2] in y):
+
                 x[n] = 0 
             
             else: 
                 x[n] = 6
     
-
 
 print(sum([int(''.join(map(str,x))) for x in sortedoutputvalue]))
