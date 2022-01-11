@@ -1,6 +1,6 @@
 import numpy as np 
 from collections import Counter
-import time
+
 
 start = time.time()
 
@@ -25,30 +25,17 @@ for i in range(1,120):
 end = time.time()
 print(end - start)
 
-#print(len(inputs))
+print(len(inputs))
 
 
 
 #Part 2 
-
 # jälva noob bait asså
 
+fish_chain = [[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[1,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0]]
+sorted(Counter(inputs).items()) 
 
-start = time.time()
-f = open('input.txt','r')
+# extracted manually 
+fishes = [0,191,30,20,35,24,0,0,0]
 
-[inputs] = [x.split(',') for x in f]
-inputs = list(map(int,inputs))
-
-count = 0 
-for i in range(1,257):
-    count = count + 1
-    new_fish = 0 
-    new_fish = Counter(inputs)[0]
-    inputs = [x if x != 0 else 7 for x in inputs]
-    inputs = np.array(inputs) - np.array([1]*len(inputs))
-    inputs = list(inputs) + [8]*new_fish
-    print(count)
-
-end = time.time()
-print(end - start)
+print(np.matmul(np.matrix(fish_chain) ** 256, np.array(fishes).transpose(),dtype=np.int64).sum())
