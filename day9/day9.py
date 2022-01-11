@@ -26,7 +26,7 @@ for row in range(1,len(matrix)-1):
             low_points.append(element)
             basinplacement.append([row,column])
 
-sum([x+1 for x in low_points])
+print(sum([x+1 for x in low_points]))
 
 #Part 2
 
