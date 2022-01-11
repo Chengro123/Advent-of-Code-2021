@@ -1,25 +1,31 @@
-# import numpy as np 
+import numpy as np 
 from collections import Counter
+import time
 
-# f = open('input.txt','r')
+start = time.time()
 
-# [inputs] = [x.split(',') for x in f]
-# inputs = list(map(int,inputs))
+f = open('input.txt','r')
 
-# count = 0
-# for i in range(1,250):
-#     count = count + 1
-#     new_fish = 0 
-#     for j,fish in enumerate(inputs):
-#         if fish == 0:
-#             inputs[j] = 6
-#             new_fish = new_fish + 1
-#         else:
-#             inputs[j] = inputs[j] - 1
-#     inputs = inputs + [8]*new_fish
-#     print(count)
+[inputs] = [x.split(',') for x in f]
+inputs = list(map(int,inputs))
 
-# print(len(inputs))
+count = 0
+for i in range(1,120):
+    count = count + 1
+    new_fish = 0 
+    for j,fish in enumerate(inputs):
+        if fish == 0:
+            inputs[j] = 6
+            new_fish = new_fish + 1
+        else:
+            inputs[j] = inputs[j] - 1
+    inputs = inputs + [8]*new_fish
+    print(count)
+
+end = time.time()
+print(end - start)
+
+#print(len(inputs))
 
 
 
@@ -27,7 +33,8 @@ from collections import Counter
 
 # jälva noob bait asså
 
-import numpy as np 
+
+start = time.time()
 f = open('input.txt','r')
 
 [inputs] = [x.split(',') for x in f]
@@ -42,3 +49,6 @@ for i in range(1,257):
     inputs = np.array(inputs) - np.array([1]*len(inputs))
     inputs = list(inputs) + [8]*new_fish
     print(count)
+
+end = time.time()
+print(end - start)
