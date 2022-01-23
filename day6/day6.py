@@ -2,7 +2,6 @@ import numpy as np
 from collections import Counter
 
 
-start = time.time()
 
 f = open('input.txt','r')
 
@@ -22,8 +21,6 @@ for i in range(1,120):
     inputs = inputs + [8]*new_fish
     print(count)
 
-end = time.time()
-print(end - start)
 
 print(len(inputs))
 
